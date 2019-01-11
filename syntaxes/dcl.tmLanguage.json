@@ -7,14 +7,26 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#supports"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.dcl",
-				"match": "\\b(if|then|else|endif|gosub|goto|write|copy|create|set|delete|type|read|def)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.dcl",
+					"match": "(?i)\\b(if|then|else|endif|gosub|goto|write|copy|create|set|delete|type|read|def)\\b"
+				},
+				{
+					"name": "keyword.operator.new.dcl",
+					"match": "(?i)=|:=|\\+|\\(|\\)|,|-|@|\\.lt\\.|\\.nes\\.|\\.gt\\.|\\.eqs\\.|\\.and\\.|\\.or\\.|\\.ne\\.|\\.eq\\."
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.dcl",
@@ -23,7 +35,23 @@
 			"patterns": [
 				{
 					"name": "constant.character.escape.dcl",
-					"match": "\\\\."
+					"match": "''.+'"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.exclamation.dcl",
+					"match": "!.*$"
+				}
+			]
+		},
+		"supports": {
+			"patterns": [
+				{
+					"name": "support.function.dcl",
+					"match": "(?i)f\\$[a-z]+"
 				}
 			]
 		}
