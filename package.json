@@ -1,0 +1,25 @@
+{
+    "name": "openvms-dcl",
+    "displayName": "OpenVMS DCL",
+    "description": "Syntax Highlighting for Open VMS Digital Command Languange",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.30.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "dcl",
+            "aliases": ["DCL", "dcl"],
+            "extensions": [".com"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "dcl",
+            "scopeName": "source.dcl",
+            "path": "./syntaxes/dcl.tmLanguage.json"
+        }]
+    }
+}

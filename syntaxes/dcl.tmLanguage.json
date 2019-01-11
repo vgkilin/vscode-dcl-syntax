@@ -1,0 +1,32 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "DCL",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.dcl",
+				"match": "\\b(if|then|else|endif|gosub|goto|write|copy|create|set|delete|type|read|def)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.dcl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dcl",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.dcl"
+}
