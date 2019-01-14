@@ -20,11 +20,19 @@
 			"patterns": [
 				{
 					"name": "keyword.control.dcl",
-					"match": "(?i)\\b(if|then|else|endif|gosub|goto|write|copy|create|set|delete|type|read|def)\\b"
+					"match": "(?i)\\b(if|then|else|endif|call|gosub|goto|set|on|return|exit|wait)\\b"
+				},
+				{
+					"name": "keyword.operator.quantifier.regexp.dcl",
+					"match": "(?i)\\b(open|close|write|read|copy|create|delete|type|def|define|inquire)\\b"
 				},
 				{
 					"name": "keyword.operator.new.dcl",
-					"match": "(?i)=|:=|\\+|\\(|\\)|,|-|@|\\.lt\\.|\\.nes\\.|\\.gt\\.|\\.eqs\\.|\\.and\\.|\\.or\\.|\\.ne\\.|\\.eq\\."
+					"match": "(?i)\\.lt\\.|\\.nes\\.|\\.gt\\.|\\.eqs\\.|\\.and\\.|\\.or\\.|\\.ne\\.|\\.eq\\."
+				},
+				{
+					"name": "keyword.other.unit.dcl",
+					"match": "(?i)sys\\$error|sys\\$output|sys\\$input|\\(|\\)"
 				}
 			]
 		},
@@ -34,7 +42,7 @@
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.dcl",
+					"name": "entity.name.variable.dcl",
 					"match": "''.+'"
 				}
 			]
