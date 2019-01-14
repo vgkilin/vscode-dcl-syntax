@@ -13,6 +13,9 @@
 		},
 		{
 			"include": "#supports"
+		},
+		{
+			"include": "#elements"
 		}
 	],
 	"repository": {
@@ -60,6 +63,17 @@
 				{
 					"name": "support.function.dcl",
 					"match": "(?i)f\\$[a-z]+"
+				}
+			]
+		},
+		"elements": {
+			"patterns": [
+				{
+					"match": "(?i)^\\$\\s+([a-z_0-9]+)\\s*(=|==|:=|:==)",
+					"captures": {
+						"1": { "name": "variable.name.dcl" },
+						"2": { "name": "keyword.operator.new.dcl" }
+					}
 				}
 			]
 		}
