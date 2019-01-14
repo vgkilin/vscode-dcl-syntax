@@ -87,7 +87,7 @@
 				},
 				{
 					"comment": "Jumping to label",
-					"match": "(?i)\\b(goto|gosub)\\b\\s+([a-z_0-9]+)",
+					"match": "(?i)\\b(goto|gosub)\\b\\s+('*[a-z_0-9]+'*)",
 					"captures": {
 						"1": { "name": "keyword.control.dcl" },
 						"2": { "name": "punctuation.definition.tag.dcl" }
