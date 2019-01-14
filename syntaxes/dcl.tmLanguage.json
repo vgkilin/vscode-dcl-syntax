@@ -32,7 +32,7 @@
 				{
 					"comment": "Comparation operators",
 					"name": "keyword.operator.new.dcl",
-					"match": "(?i)\\.lt\\.|\\.nes\\.|\\.gt\\.|\\.eqs\\.|\\.and\\.|\\.or\\.|\\.ne\\.|\\.eq\\."
+					"match": "(?i)\\.eq\\.|\\.ne\\.|\\.gt\\.|\\.ge\\.|\\.lt\\.|\\.le\\.|\\.not\\.|\\.and\\.|\\.or\\.|\\.eqs\\.|\\.nes\\.|\\.gts\\.|\\.ges\\.|\\.lts\\.|\\.les\\."
 				},
 				{
 					"comment": "System streams",
