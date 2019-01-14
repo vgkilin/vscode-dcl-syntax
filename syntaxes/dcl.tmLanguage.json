@@ -23,19 +23,26 @@
 			"patterns": [
 				{
 					"name": "keyword.control.dcl",
-					"match": "(?i)\\b(if|then|else|endif|call|gosub|goto|set|on|return|exit|wait)\\b"
+					"match": "(?i)\\b(if|then|else|endif|call|set|on|return|exit|wait)\\b"
 				},
 				{
 					"name": "keyword.operator.quantifier.regexp.dcl",
 					"match": "(?i)\\b(open|close|write|read|copy|create|delete|type|def|define|inquire)\\b"
 				},
 				{
+					"comment": "Comparation operators",
 					"name": "keyword.operator.new.dcl",
 					"match": "(?i)\\.lt\\.|\\.nes\\.|\\.gt\\.|\\.eqs\\.|\\.and\\.|\\.or\\.|\\.ne\\.|\\.eq\\."
 				},
 				{
+					"comment": "System streams",
 					"name": "keyword.other.unit.dcl",
 					"match": "(?i)sys\\$error|sys\\$output|sys\\$input|\\(|\\)"
+				},
+				{
+					"comment": "Qualifiers",
+					"name": "string.regexp.dcl",
+					"match": "(?i)/[a-z]+"
 				}
 			]
 		},
@@ -45,6 +52,7 @@
 			"end": "\"",
 			"patterns": [
 				{
+					"comment": "Variable substitution in string",
 					"name": "entity.name.variable.dcl",
 					"match": "''.+'"
 				}
@@ -61,6 +69,7 @@
 		"supports": {
 			"patterns": [
 				{
+					"comment": "Lexical functions",
 					"name": "support.function.dcl",
 					"match": "(?i)f\\$[a-z]+"
 				}
@@ -69,10 +78,26 @@
 		"elements": {
 			"patterns": [
 				{
+					"comment": "Variables definition",
 					"match": "(?i)^\\$\\s+([a-z_0-9]+)\\s*(=|==|:=|:==)",
 					"captures": {
 						"1": { "name": "variable.name.dcl" },
 						"2": { "name": "keyword.operator.new.dcl" }
+					}
+				},
+				{
+					"comment": "Jumping to label",
+					"match": "(?i)\\b(goto|gosub)\\b\\s+([a-z_0-9]+)",
+					"captures": {
+						"1": { "name": "keyword.control.dcl" },
+						"2": { "name": "punctuation.definition.tag.dcl" }
+					}
+				},
+				{
+					"comment": "Label declaration",
+					"match": "(?i)^\\$\\s+([a-z_0-9]+):",
+					"captures": {
+						"1": { "name": "punctuation.definition.tag.dcl" }
 					}
 				}
 			]
