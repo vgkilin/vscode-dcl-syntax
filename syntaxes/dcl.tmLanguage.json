@@ -16,6 +16,9 @@
 		},
 		{
 			"include": "#elements"
+		},
+		{
+			"include": "#special"
 		}
 	],
 	"repository": {
@@ -42,7 +45,7 @@
 				{
 					"comment": "Qualifiers",
 					"name": "string.regexp.dcl",
-					"match": "(?i)/[a-z]+"
+					"match": "(?i)/[a-z]++"
 				}
 			]
 		},
@@ -54,7 +57,7 @@
 				{
 					"comment": "Variable substitution in string",
 					"name": "entity.name.variable.dcl",
-					"match": "''.+'"
+					"match": "''.+?'"
 				}
 			]
 		},
@@ -62,7 +65,7 @@
 			"patterns": [
 				{
 					"name": "comment.line.exclamation.dcl",
-					"match": "!.*$"
+					"match": "!.*?$"
 				}
 			]
 		},
@@ -71,7 +74,7 @@
 				{
 					"comment": "Lexical functions",
 					"name": "support.function.dcl",
-					"match": "(?i)f\\$[a-z]+"
+					"match": "(?i)f\\$[a-z]++"
 				}
 			]
 		},
@@ -79,15 +82,29 @@
 			"patterns": [
 				{
 					"comment": "Variables definition",
-					"match": "(?i)^\\$\\s+([a-z_0-9]+)\\s*(=|==|:=|:==)",
+					"match": "(?i)^\\$\\s+([a-z_0-9]+)\\s*(?:=|==)",
 					"captures": {
-						"1": { "name": "variable.name.dcl" },
-						"2": { "name": "keyword.operator.new.dcl" }
+						"1": { "name": "variable.name.dcl" }
+					}
+				},
+				{
+					"comment": "Variables definition with strings",
+					"begin": "(?i)^\\$\\s+([a-z_0-9']+)\\s*(?::=|:==)",
+					"end": "[^-]\n+$",
+					"contentName": "emphasis.dcl",
+					"patterns": [
+						{ "include": "#special"}
+					],
+					"beginCaptures": {
+						"1": { "name": "variable.name.dcl" }
+					},
+					"endCaptures": {
+						"0": { "name": "emphasis.dcl"}
 					}
 				},
 				{
 					"comment": "Jumping to label",
-					"match": "(?i)\\b(goto|gosub)\\b\\s+('*[a-z_0-9]+'*)",
+					"match": "(?i)\\b(goto|gosub)\\b\\s+('?[a-z_0-9]+'?)",
 					"captures": {
 						"1": { "name": "keyword.control.dcl" },
 						"2": { "name": "punctuation.definition.tag.dcl" }
@@ -99,6 +116,15 @@
 					"captures": {
 						"1": { "name": "punctuation.definition.tag.dcl" }
 					}
+				}
+			]
+		},
+		"special": {
+			"patterns": [
+				{
+					"comment": "Line break",
+					"name": "invalid.dcl",
+					"match": "-$"
 				}
 			]
 		}
