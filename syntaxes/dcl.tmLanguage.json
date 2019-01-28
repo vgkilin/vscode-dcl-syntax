@@ -45,7 +45,7 @@
 				{
 					"comment": "Qualifiers",
 					"name": "string.regexp.dcl",
-					"match": "(?i)/[a-z]++"
+					"match": "(?i)/[a-z_]{3,}+"
 				}
 			]
 		},
