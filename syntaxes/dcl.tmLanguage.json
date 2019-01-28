@@ -82,18 +82,19 @@
 			"patterns": [
 				{
 					"comment": "Variables definition",
-					"match": "(?i)^\\$\\s+([a-z_0-9]+)\\s*(?:=|==)",
+					"match": "(?i)^\\$\\s+([a-z_0-9]+)(?:\\[.+,.+\\])?+\\s*(?:=|==)",
 					"captures": {
 						"1": { "name": "variable.name.dcl" }
 					}
 				},
 				{
-					"comment": "Variables definition with strings",
-					"begin": "(?i)^\\$\\s+([a-z_0-9']+)\\s*(?::=|:==)",
-					"end": "[^-]\n+$",
+					"comment": "Variables with substring assignment",
+					"begin": "(?i)^\\$\\s+([a-z_0-9']+)(?:\\[.+,.+\\])?+\\s*(?::=|:==)",
+					"end": "(?<!-)\\n",
 					"contentName": "emphasis.dcl",
-					"patterns": [
-						{ "include": "#special"}
+					"patterns": [	
+						{ "include": "#special"},
+						{ "include": "#strings"}
 					],
 					"beginCaptures": {
 						"1": { "name": "variable.name.dcl" }
