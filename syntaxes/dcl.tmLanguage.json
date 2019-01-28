@@ -125,6 +125,11 @@
 					"comment": "Line break",
 					"name": "invalid.dcl",
 					"match": "-$"
+				},
+				{
+					"comment": "Dereferencing of variable",
+					"name": "entity.name.variable.dcl",
+					"match": "(?i)'[a-z0-9_]++'"
 				}
 			]
 		}
